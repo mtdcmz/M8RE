@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "M8RE",
+  "version": "0.1.0",
+  "description": "Bilibili Mode 8 Danmaku JS Runtime Environment (OR Emulator).",
+  "icons": {
+    "16": "ext_icon.png",
+    "48": "ext_icon.png",
+    "128": "ext_icon.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.bilibili.com/*",
+    "*://*.hdslb.com/*"
+  ],
+  "background": {
+    "service_worker": "background/sw.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.bilibili.com/video/*"
+      ],
+      "js": [
+        "content/00_ns.js",
+        "content/01_scanner.js",
+        "content/02_expr.js",
+        "content/03_codegen.js",
+        "content/04_parser.js",
+        "content/05_vm.js",
+        "content/06_tween.js",
+        "content/07_bytearray.js",
+        "content/08_graphics.js",
+        "content/09_elements.js",
+        "content/10_motion.js",
+        "content/11_hostapi.js",
+        "content/12_protobuf.js",
+        "content/13_fetcher.js",
+        "content/14_main.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/inject.js"
+      ],
+      "matches": [
+        "*://www.bilibili.com/*"
+      ]
+    }
+  ]
+}
