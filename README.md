@@ -55,4 +55,4 @@ M8 scripts can be shipped through bilibili's danmaku servers as invisible BAS ca
 
 ## License
 
-Released under the [GNU General Public License v3.0](LICENSE).
+Released under the [MIT License](LICENSE).
